@@ -17,12 +17,30 @@
 			color:#fff;
 			text-align:center;
 			}
+			
+		 .background {
+			 position: absolute; 
+			 width: 100%; 
+			 height: 100%; 
+			 left: 0; 
+			 top: 0; 
+			 z-index: -1; 
+			 opacity: 0.5;
+		 }
+		 .chapter h2 {
+		 	text-align: center; 
+			padding-top: 198px; 
+			font-weight: 700; 
+			-moz-text-shadow: 1px 1px 8px #fff;
+			-webkit-text-shadow: 1px 1px 8px #fff;
+			text-shadow: 1px 1px 8px #000;
+		 }
 	</style>
 </head>
 <body class="list">
 	<header class="caption">
-		<h1>Mozilla Switzerland</h1>
-		<p>Michael Kohler, mkohler@picobudget.com</p>
+		<h1>What users love and widens your reach: Software Localization</h1>
+		<p>Gion-Andri Cantieni, Marc Bächinger</p>
 	</header>
 
 	<div class="slide cover" id="Cover"><div>
@@ -34,19 +52,129 @@
 	<div class="slide" id="Title"><div>
 		<section>
 			<header>
-			    <h1>Mozilla Switzerland</h1>
-				<h2>Firefox OS App Day Switzerland</h2>
+			    <h1>FirefoxOS App Day Switzerland</h1><br/>
+				<h2><b>What users love and widens your reach: Software Localization</b></h2>
 			</header>
-			<footer class="byline">Michael Kohler, Mozilla Rep, 25.05.2013</footer>
+			<footer class="byline"><b>Gion-Andri Cantieni</b>,<br/>&nbsp;&nbsp;&nbsp;Mozilla Contributer, I18N practicioner<br/><b>Marc Bächinger</b>,<br/>&nbsp;&nbsp;&nbsp;Mozilla fellow, web developer</footer>
 		</section>
 	</div></div>
 
 	<div class="slide" id="UnorderedList"><div>
 		<section>
 			<header>
-				<h2>Who am I?</h2>
+				<h2>Localizing software</h2>
 			</header>
-			<p>Foo Bar</p>
+			<ul>
+				<li>Decent localization is key for user acceptance</li>
+				<li>Firefox has a strong history of support for many languages</li>
+				<li>Users love to have their apps in their very own idiom</li>
+				<li>Swiss software is localized by tradition (de,it,fr,en!)</li>
+			</ul>
+		</section>
+	</div></div>
+
+
+	<div class="slide" id="ff-rumantsch"><div>
+		<section>
+			<header>
+				<h2>Firefox rumantsch</h2>
+			</header>
+			<ul>
+				<li>about localizing Firefox</li>
+				<li>Am I right in saying people love software in their idiom? Can you confirm that as a native rumantsch speaker?
+				<li>hints for developers, what problems did you had</li>
+				<li>how works the interaction of localizers and developers at mozilla</li>
+				<li>stuff like this or your choice :-)</li>
+			</ul>
+		</section>
+	</div></div>
+
+
+
+	<div class="slide chapter" id="web-localitation-chapter"><div>
+		<section>
+			<header>
+				<h2>Localizing FirefoxOS apps</h2>
+			</header>
+			<img id="globe" src="pictures/globe.jpg" class="background"/>
+		</section>
+	</div></div>
+
+	<div class="slide" id="web-localitation"><div>
+		<section>
+			<header>
+				<h2>Localizing FirefoxOS apps</h2>
+			</header>
+			<ul>
+				<li>for l10n: FirefoxOS app === standards based HTML5 app<br/><br/></li>
+				<li>I18N for the web traditionally done on the server side</li>
+				<li>with HTML5 and SPAs markup is often <i><strong>rendered on the client side</strong></i></li>
+				<li>client-side i18n support is required<br/><br/></li>
+				<li>among others Mozilla provides a solution with <a>webL10n</a></li>
+			</ul>
+		</section>
+	</div></div>
+
+
+	<div class="slide" id="webL10n"><div>
+		<section>
+			<header>
+				<h2>webL10n</h2>
+			</header>
+			<ul>
+				<li>Github: <a target="blank" href="https://github.com/fabi1cazenave/webL10n">https://github.com/fabi1cazenave/webL10n</a><br><br></li>
+				<li>declarative localization</li>
+    			<li>named variables instead of printf-like %s tokens</li>
+    			<li>a simple and full-featured pluralization system</li>
+    			<li>server-less language negotiation (think of offline webapps)</li>
+				<li>JavaScript API</li>
+			</ul>
+		</section>
+	</div></div>
+
+
+
+	<div class="slide" id="l10n-attributes"><div>
+		<section>
+			<header>
+				<h2>l10n-Attributes</h2>
+			</header>
+			<pre><code>&lt;section&gt;
+	&lt;h1 data-l10n-id=""<mark>header-main</mark>"&gt;&lt;/h1&gt;
+	&lt;p data-l10n-id=""<mark>welcome-note</mark>"&gt;&lt;/p&gt;
+	&lt;button data-l10n-id=""<mark>button-register-label</mark>"&gt;
+	&lt;/button&gt;
+&lt;/section&gt;</code></pre>
+		</section>
+	</div></div>
+
+	<div class="slide" id="l10n-inis"><div>
+		<section>
+			<header>
+				<h2>Language-files</h2>
+			</header>
+			<pre><code>[de]
+<mark>header-main</mark> = Besuche den FirefoxOS...
+<mark>welcome-note</mark> = Wir freuen uns dich am ...
+<mark>button-register-label</mark> = Registrieren
+[de-CH]
+<mark>header-main</mark> = Gang an FirefoxOS App Day Schwiiz!
+<mark>welcome-note</mark> = Mär freued ois uf dich!
+<mark>button-register-label</mark> = Regischtriärä</code></pre>
+		</section>
+	</div></div>
+
+	<div class="slide" id="l10n-event"><div>
+		<section>
+			<header>
+				<h2>event="onlocalized"</h2>
+			</header><br/>
+			<pre><code>window.addEventListener('<mark>localized</mark>', function() {
+	<span style="color: #999">document.documentElement.lang = 
+		document.webL10n.getLanguage();
+	document.documentElement.dir = 
+		document.webL10n.getDirection();</span>
+}, false);</code></pre>
 		</section>
 	</div></div>
 
