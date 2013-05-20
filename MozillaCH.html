@@ -163,6 +163,30 @@
 <mark>button-register-label</mark> = Regischtriärä</code></pre>
 		</section>
 	</div></div>
+	
+	
+	
+
+
+	<div class="slide" id="l10n-api"><div>
+		<section>
+			<header>
+				<h2>JavaScript API</h2>
+			</header>
+			<pre>
+				<code><span style="color: #666;">// get a text in the current language</span></code>
+				<code>var message = document.webL10n.get("header-main");
+<span style="color: #666;">// setting the language re-translates the DOM</span></code>
+				<code>document.webL10n.setLanguage("de-CH");					
+<span style="color: #666;">// translate a DOM fragment (eg. after rendering)</span></code>
+				<code>document.webL10n.translate(
+	document.querySelector("#sidebar");
+);</code>
+			</pre>
+		</section>
+	</div></div>
+	
+	
 
 	<div class="slide" id="l10n-event"><div>
 		<section>
